@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <launch>
+    <arg name="gui" default="true" doc="set false to disable rqt_gui" />
+
     <node pkg="cv_camera" type="cv_camera_node" name="cv_camera">
         <param name="rate" value="10" />
     </node>
@@ -8,6 +10,9 @@
         <remap from="image_raw" to="cv_camera/image_raw" />
     </node>
     
-    <node pkg="gaze_tracking_ros" type="start_rqt.sh" name="rqt_gui" args="--perspective-file $(find gaze_tracking_ros)cfg/eye_tracking.perspective" required="true"/>
+    <node pkg="gaze_tracking_ros" type="start_rqt.sh" name="rqt_gui" 
+        args="--perspective-file $(find gaze_tracking_ros)cfg/eye_tracking.perspective"
+        required="true"
+        if="$(arg gui)"/>
     
 </launch>
