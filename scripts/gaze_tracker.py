@@ -40,7 +40,7 @@ class GazeExtractor:
         
         #pack gaze tracking result into a GazeState message and publish
         result_msg = GazeState()
-        result_msg.header.stamp = rospy.Time.now()
+        result_msg.header = img_msg.header
         result_msg.is_left = self.gaze.is_left()
         result_msg.is_right = self.gaze.is_right()
         result_msg.is_center = self.gaze.is_center()
