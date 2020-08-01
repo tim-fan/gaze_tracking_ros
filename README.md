@@ -49,5 +49,11 @@ roslaunch gaze_tracking_ros example.launch
 
 ```
 
+## Docker install/run:
+```bash
+docker build -t gaze_tracking .
+docker run --network=host --device=/dev/video0 gaze_tracking roslaunch gaze_tracking_ros example.launch gui:=false
+```
+
 ## Credits
 All credit  to [Antoine Lamé](https://github.com/antoinelame) for developing the underlying gaze tracking algorithm. This package is just a wrapper!
