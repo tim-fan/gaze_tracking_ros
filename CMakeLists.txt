@@ -155,7 +155,10 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-install(PROGRAMS scripts/gaze_tracker.py scripts/start_rqt.sh
+catkin_install_python(PROGRAMS scripts/gaze_tracker.py
+                      DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+install(PROGRAMS scripts/start_rqt.sh
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
